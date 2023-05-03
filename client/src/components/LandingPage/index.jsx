@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './LandingPage.css';
 
 function LandingPage() {
@@ -7,7 +8,7 @@ function LandingPage() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isInvalidLink, setIsInvalidLink] = useState(false);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     const regex = /^https:\/\/open\.spotify\.com\/track\/[a-zA-Z0-9]+(\?si=[a-zA-Z0-9]+)?$/;
@@ -21,6 +22,13 @@ function LandingPage() {
     }
 
     // Call your backend API here to send the input value and get the song information.
+    try {
+      const response = await axios.post('/api/song-info', { songLink: input });
+      console.log('API response:', response.data);
+    } catch (error) {
+      console.error('Error fetching song information:', error);
+    }
+    
     console.log('Form submitted:', input);
   };
 
