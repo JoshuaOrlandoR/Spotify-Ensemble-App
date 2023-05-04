@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import './LandingPage.css';
 
 function LandingPage() {
   const [focused, setFocused] = useState(false);
-  const [input, setInput] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isInvalidLink, setIsInvalidLink] = useState(false);
+  
+  const songLinkInputRef = useRef();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    const songLinkInput = songLinkInputRef.current.value;
+
     const regex = /^https:\/\/open\.spotify\.com\/track\/[a-zA-Z0-9]+(\?si=[a-zA-Z0-9]+)?$/;
-    const isValidSpotifyLink = regex.test(input);
+    const isValidSpotifyLink = regex.test(songLinkInput);
 
     if (!isValidSpotifyLink) {
       setIsInvalidLink(true);
@@ -23,13 +26,13 @@ function LandingPage() {
 
     // Call your backend API here to send the input value and get the song information.
     try {
-      const response = await axios.post('/api/song-info', { songLink: input });
+      const response = await axios.post('http://localhost:9000/api/song-info', { songLink: songLinkInput });
       console.log('API response:', response.data);
     } catch (error) {
       console.error('Error fetching song information:', error);
     }
     
-    console.log('Form submitted:', input);
+    console.log('Form submitted:', songLinkInput);
   };
 
   const handleModalToggle = () => {
@@ -42,9 +45,7 @@ function LandingPage() {
       <h1 className="title">Ensemble</h1>
       <form onSubmit={handleFormSubmit} className="form-container">
         <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          ref={songLinkInputRef}
           className={`input-form${focused ? ' focused' : ''}${isInvalidLink ? ' invalid-link' : ''}`}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}

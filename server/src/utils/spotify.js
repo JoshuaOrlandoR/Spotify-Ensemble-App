@@ -1,5 +1,5 @@
-const SpotifyWebApi = require('spotify-web-api-node');
-const dotenv = require('dotenv');
+import SpotifyWebApi from 'spotify-web-api-node';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -19,4 +19,4 @@ const getAccessToken = async () => {
 
 getAccessToken();
 
-module.exports = spotifyApi;
+export default spotifyApi;

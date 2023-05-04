@@ -1,10 +1,12 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
-const songRoutes = require('./api/routes/songs');
-const errorHandlingMiddleware = require('./api/middleware/errorHandling');
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import { songRoutes } from './api/routes/songs.js';
+import errorHandlingMiddleware from './api/middleware/errorHandling.js';
+
+
 
 dotenv.config();
 
@@ -18,7 +20,6 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/api', songRoutes);
-
 
 // Error handling middleware
 app.use(errorHandlingMiddleware);
