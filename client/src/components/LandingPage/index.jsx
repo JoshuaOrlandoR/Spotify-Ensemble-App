@@ -1,13 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import SongDataContext from '../../Context/SongDataContext.js'
 import axios from 'axios';
 import './LandingPage.css';
+import SongInfo from '../SongInfo';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
   const [focused, setFocused] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isInvalidLink, setIsInvalidLink] = useState(false);
-  
+  const [showSongInfo, setShowSongInfo] = useState(false); // New state variable
+  const { songData, setSongData } = useContext(SongDataContext);
+
   const songLinkInputRef = useRef();
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -24,14 +30,15 @@ function LandingPage() {
       return;
     }
 
-    // Call your backend API here to send the input value and get the song information.
     try {
       const response = await axios.post('http://localhost:9000/api/song-info', { songLink: songLinkInput });
       console.log('API response:', response.data);
+      setSongData(response.data);
+      navigate('/song-info');
     } catch (error) {
       console.error('Error fetching song information:', error);
     }
-    
+
     console.log('Form submitted:', songLinkInput);
   };
 
@@ -39,6 +46,11 @@ function LandingPage() {
     setIsModalVisible(!isModalVisible);
     setIsInvalidLink(false);
   };
+
+  if (showSongInfo) {
+    return <SongInfo data={songData} />;
+  }
+
 
   return (
     <div className="landing-page">
@@ -63,6 +75,7 @@ function LandingPage() {
         <button type="submit" className="submit-button">Let's Explore!</button>
       </form>
       <p className="info-text">Powered by the Spotify API. Created with Vite and React (ADD OTHER TECHNOLOGIES AS WE GO).</p>
+      {songData && <SongInfo data={songData} />} 
     </div>
   );
   

@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/index.jsx';
 import LandingPage from './components/LandingPage/index.jsx';
+import SongInfo from './components/SongInfo/index.jsx';
+import SongDataContext from './Context/SongDataContext.js'
 // import About from './components/About/index.jsx';
 
 function App() {
+  const [songData, setSongData] = useState(null);
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/about" element={<About />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <SongDataContext.Provider value={{ songData, setSongData }}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/song-info" element={<SongInfo />} />
+        </Routes>
+      </BrowserRouter>
+    </SongDataContext.Provider>
   );
 }
 
