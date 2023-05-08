@@ -8,10 +8,14 @@ import SongDataContext from './Context/SongDataContext.js'
 
 function App() {
   const [songData, setSongData] = useState(null);
+  const clearSongData = () => {
+    setSongData(null);
+  };
+
   return (
     <SongDataContext.Provider value={{ songData, setSongData }}>
       <BrowserRouter>
-        <Navbar />
+      <Navbar clearSongData={clearSongData} />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/song-info" element={<SongInfo />} />
