@@ -30,5 +30,23 @@ router.post('/song-info', async (req, res) => {
   }
 });
 
+// GET /api/recommendations/simple
+router.get('/recommendations/simple', async (req, res) => {
+  try {
+    const songId = req.query.song_id;
+
+    if (!songId) {
+      return res.status(400).json({ error: 'Missing required parameter: song_id' });
+    }
+
+    console.log('Fetching recommendations for song ID:', songId); // Add this line
+    const recommendations = await spotifyApi.getRecommendations({ seed_tracks: [songId], limit: 10 });
+    console.log('Fetched recommendations:', recommendations.body); // Add this line
+    res.json(recommendations.body);
+  } catch (err) {
+    console.error('Error fetching recommendations:', err);
+    res.status(500).json({ error: 'Error fetching recommendations' });
+  }
+});
 
 export { router as songRoutes };

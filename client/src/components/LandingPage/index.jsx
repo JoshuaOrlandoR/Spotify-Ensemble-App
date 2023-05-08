@@ -9,7 +9,7 @@ function LandingPage() {
   const [focused, setFocused] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isInvalidLink, setIsInvalidLink] = useState(false);
-  const [showSongInfo, setShowSongInfo] = useState(false); // New state variable
+  const [showSongInfo, setShowSongInfo] = useState(false); 
   const { songData, setSongData } = useContext(SongDataContext);
 
   const songLinkInputRef = useRef();

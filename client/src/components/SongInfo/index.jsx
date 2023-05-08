@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import SongDataContext from '../../Context/SongDataContext';
 import './SongInfo.css';
+import axios from 'axios';
+
 
 function SongInfo({ data }) {
   const { songData } = useContext(SongDataContext);
@@ -31,6 +33,22 @@ function SongInfo({ data }) {
     setIsModalVisible(false);
   };
 
+  const handleSimpleRecommendations = async () => {
+    try {
+      const response = await axios.get(`http://localhost:9000/api/recommendations/simple?song_id=${songData.id}`);
+      const data = await response.data;
+  
+      if (data.tracks) {
+        console.log('Recommended tracks:', data.tracks);
+      } else {
+        console.error('Error fetching recommendations:', data.error);
+      }
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+    }
+  };
+  
+
   return (
     <div className="song-info">
       <h2 className="song-title">{name}</h2>
@@ -53,7 +71,10 @@ function SongInfo({ data }) {
       <p className="album-name">Album: {albumName}</p>
       <p className="release-date">Release Date: {releaseDate}</p>
       <p className="popularity">Popularity: {popularity}</p>
-      <button className="generate-recommendations">Generate Recommendations</button>
+      <button className="generate-recommendations" onClick={handleSimpleRecommendations}>
+        Generate Simple Recommendations
+      </button>
+      <button className="generate-recommendations">Generate Advanced Recommendations</button>
     </div>
   );
 }
