@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/index.jsx';
 import LandingPage from './components/LandingPage/index.jsx';
 import SongInfo from './components/SongInfo/index.jsx';
 import SongDataContext from './Context/SongDataContext.js'
-// import About from './components/About/index.jsx';
+import SongList from './components/SongList/index.jsx';
 
 function App() {
   const [songData, setSongData] = useState(null);
@@ -15,11 +15,14 @@ function App() {
   return (
     <SongDataContext.Provider value={{ songData, setSongData }}>
       <BrowserRouter>
-      <Navbar clearSongData={clearSongData} />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/song-info" element={<SongInfo />} />
-        </Routes>
+        <Navbar clearSongData={clearSongData} />
+        <div style={{ width: '100vw' }}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/song-info" element={<SongInfo />} />
+            <Route path="/song-list" element={<SongList />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </SongDataContext.Provider>
   );

@@ -2,10 +2,14 @@ import React, { useContext, useState } from 'react';
 import SongDataContext from '../../Context/SongDataContext';
 import './SongInfo.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function SongInfo({ data }) {
+  const navigate = useNavigate();
   const { songData } = useContext(SongDataContext);
+  const [recommendedTracks, setRecommendedTracks] = useState([]);
   console.log("SongInfo data:", songData);
   if (!songData) {
     return <div className='loading-song-info'>Loading...(if you see this there's a chance the Spotify API did not load your link properly!)</div>;
@@ -40,6 +44,8 @@ function SongInfo({ data }) {
   
       if (data.tracks) {
         console.log('Recommended tracks:', data.tracks);
+        setRecommendedTracks(data.tracks);
+        navigate('/song-list', { state: { tracks: data.tracks } });
       } else {
         console.error('Error fetching recommendations:', data.error);
       }

@@ -1,0 +1,22 @@
+body {
+    overflow-x: hidden;
+  }
+  
+.song-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 75px;
+    padding-bottom: 20px;
+  }
+  
+  .song-list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto; 
+  }
+  
