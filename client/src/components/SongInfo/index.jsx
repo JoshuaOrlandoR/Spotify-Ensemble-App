@@ -53,6 +53,50 @@ function SongInfo({ data }) {
       console.error('Error fetching recommendations:', error);
     }
   };
+
+  const handleAdvancedRecommendations = async () => {
+    try {
+      const response = await axios.get(`http://localhost:9000/api/audio-features?song_id=${songData.id}`);
+      const data = await response.data;
+  
+      console.log('Audio features:', data);
+  
+      const { acousticness, energy, tempo, speechiness } = data;
+  
+      console.log('Acousticness:', acousticness);
+      console.log('Energy:', energy);
+      console.log('Tempo:', tempo);
+      console.log('Speechiness:', speechiness);
+  
+      
+      try {
+        const recommendationsResponse = await axios.get(`http://localhost:9000/api/recommendations/advanced?song_id=${songData.id}&target_acousticness=${acousticness}&target_energy=${energy}&target_tempo=${tempo}&target_speechiness=${speechiness}`);
+        const recommendationsData = await recommendationsResponse.data;
+  
+        console.log('Advanced Recommendations:', recommendationsData);
+  
+        if (recommendationsData.tracks) {
+          console.log('Advanced recommended tracks:', recommendationsData.tracks);
+  
+          // filter out the seed track
+          const filteredTracks = recommendationsData.tracks.filter(track => track.id !== songData.id);
+  
+          setRecommendedTracks(filteredTracks);
+          navigate('/song-list', { state: { tracks: filteredTracks } });
+        } else {
+          console.error('Error fetching advanced recommendations:', recommendationsData.error);
+        }
+      } catch (error) {
+        console.error('Error fetching advanced recommendations:', error);
+      }
+    } catch (error) {
+      console.error('Error fetching audio features:', error);
+    }
+  };
+  
+  
+  
+
   
 
   return (
@@ -80,7 +124,9 @@ function SongInfo({ data }) {
       <button className="generate-recommendations" onClick={handleSimpleRecommendations}>
         Generate Simple Recommendations
       </button>
-      <button className="generate-recommendations">Generate Advanced Recommendations</button>
+      <button className="generate-recommendations" onClick={handleAdvancedRecommendations}>
+        Generate Advanced Recommendations
+      </button>
     </div>
   );
 }
