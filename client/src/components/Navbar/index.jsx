@@ -6,7 +6,7 @@ function Navbar({ clearSongData }) {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-logo" onClick={clearSongData}>
-        LOGO
+        ENSEMBLE
       </Link>
       <div className="navbar-right">
         <Link to="/" className="nav-links" onClick={clearSongData}>

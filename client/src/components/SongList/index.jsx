@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './SongList.css';
-import SongCard from '../SongCard';
+import SongCard from '../SongListCard';
 
 function SongList() {
   const location = useLocation();

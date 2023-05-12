@@ -20,7 +20,7 @@ function SongCard({ track }) {
 
       while (titleElement.scrollHeight > titleElement.clientHeight) {
         const fontSize = parseFloat(window.getComputedStyle(titleElement).fontSize);
-        titleElement.style.fontSize = `${fontSize - 1}px`;
+        titleElement.style.fontSize = `${fontSize - 5}px`;
       }
     };
 
