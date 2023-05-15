@@ -1,0 +1,46 @@
+.aboutPage {
+    text-align: center; 
+    justify-content: start;
+    height: 100vh;
+    background-color: #245953;
+  }
+  
+  .content {
+    text-align: center;
+    width: 100%;
+  }
+
+  .aboutTitle {
+    font-size: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+  
+  .contentBody {
+    font-size: 1rem;
+  }
+
+  .aboutSection {
+    margin: 20px 0; 
+  }
+
+  .aboutSection ul {
+    list-style-type: none;
+}
+
+  .aboutSection h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px;
+  }
+
+  .about-links li {
+    margin-top: 5px;
+    font-size: 1.5rem;
+  }
+  .about-links a {
+    color: #d8d8d8;
+  }
+
+  .about-links a:hover {
+    color: #ea7777;
+  }

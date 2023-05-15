@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage/index.jsx';
 import SongInfo from './components/SongInfo/index.jsx';
 import SongDataContext from './Context/SongDataContext.js'
 import SongList from './components/SongList/index.jsx';
+import About from './components/About/index.jsx';
 
 function App() {
   const [songData, setSongData] = useState(null);
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/song-info" element={<SongInfo />} />
             <Route path="/song-list" element={<SongList />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -9,7 +9,7 @@ function Navbar({ clearSongData }) {
         ENSEMBLE
       </Link>
       <div className="navbar-right">
-        <Link to="/" className="nav-links" onClick={clearSongData}>
+        <Link to="/about" className="nav-links" onClick={clearSongData}>
           About
         </Link>
       </div>
