@@ -45,6 +45,7 @@ SPOTIFY_CLIENT_SECRET=YOU_SPOTIFY_CLIENT_SECRET
 <br>
 <br>
 The application will NOT function without these keys to acccess the Spotify API. I ask you name the project Ensemble: Local Version, or a similar title. 
+<br>
 ### Installation (for local use)
 <br>
 1. Clone the repository to your local machine using the following command (or download from the Repo!):
