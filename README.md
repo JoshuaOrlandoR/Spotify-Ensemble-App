@@ -43,6 +43,7 @@ SPOTIFY_CLIENT_ID=YOUR_SPOTIFY_DEV_ID
 <br>
 SPOTIFY_CLIENT_SECRET=YOU_SPOTIFY_CLIENT_SECRET
 <br>
+<br>
 The application will NOT function without these keys to acccess the Spotify API. I ask you name the project Ensemble: Local Version, or a similar title. 
 ### Installation (for local use)
 <br>
