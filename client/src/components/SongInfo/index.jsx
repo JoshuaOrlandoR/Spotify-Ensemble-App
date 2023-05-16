@@ -39,8 +39,7 @@ function SongInfo({ data }) {
 
   const handleSimpleRecommendations = async () => {
     try {
-      const response = await axios.get(`http://localhost:9000/api/recommendations/simple?song_id=${songData.id}`);
-      const data = await response.data;
+      const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/recommendations/simple?song_id=${songData.id}`);      const data = await response.data;
   
       if (data.tracks) {
         console.log('Recommended tracks:', data.tracks);
@@ -56,7 +55,7 @@ function SongInfo({ data }) {
 
   const handleAdvancedRecommendations = async () => {
     try {
-      const response = await axios.get(`http://localhost:9000/api/audio-features?song_id=${songData.id}`);
+      const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/audio-features?song_id=${songData.id}`);
       const data = await response.data;
   
       console.log('Audio features:', data);
@@ -70,7 +69,7 @@ function SongInfo({ data }) {
   
       
       try {
-        const recommendationsResponse = await axios.get(`http://localhost:9000/api/recommendations/advanced?song_id=${songData.id}&target_acousticness=${acousticness}&target_energy=${energy}&target_tempo=${tempo}&target_speechiness=${speechiness}`);
+        const recommendationsResponse = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/recommendations/advanced?song_id=${songData.id}&target_acousticness=${acousticness}&target_energy=${energy}&target_tempo=${tempo}&target_speechiness=${speechiness}`);
         const recommendationsData = await recommendationsResponse.data;
   
         console.log('Advanced Recommendations:', recommendationsData);

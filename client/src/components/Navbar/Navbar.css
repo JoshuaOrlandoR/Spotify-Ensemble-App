@@ -38,3 +38,24 @@
 .nav-links:hover {
   color: #e49393;  
 }
+
+
+/* For small devices like phones */
+@media (max-width: 600px) {
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .nav-links {
+    font-size: 0.8rem;
+  }
+}
+
+/* For medium devices like tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    font-size: 0.9rem;
+  }
+}

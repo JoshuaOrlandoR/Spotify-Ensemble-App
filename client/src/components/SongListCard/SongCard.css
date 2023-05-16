@@ -55,3 +55,22 @@
     background-color: #646cff;
   }
   
+  /* For small screens (mobile devices) */
+@media only screen and (max-width: 600px) {
+  .song-card {
+    /* adjust to desired size for small screens */
+    transform: scale(0.8);
+    width: 280px; 
+    height: 400px; 
+  }
+}
+
+/* For medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .song-card {
+    /* adjust to desired size for medium screens */
+    transform: scale(0.9);
+    width: 315px; 
+    height: 450px; 
+  }
+}

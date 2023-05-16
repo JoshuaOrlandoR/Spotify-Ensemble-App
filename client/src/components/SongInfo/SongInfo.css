@@ -83,3 +83,55 @@
     margin-left: 10px;
     white-space: nowrap;
   }
+
+  /* For small devices like phones */
+@media (max-width: 600px) {
+  .song-info {
+    padding: 1rem;
+  }
+  .song-title {
+    font-size: 1.75rem;
+  }
+  .artist-name {
+    font-size: 1.5rem;
+  }
+  .album-art {
+    max-width: 300px;
+  }
+  .album-name,
+  .release-date,
+  .popularity {
+    font-size: 0.8rem;
+  }
+  .generate-recommendations,
+  .spotify-button {
+    font-size: 1rem;
+    padding: 0.3rem 0.55rem;
+  }
+}
+
+/* For medium devices like tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  .song-info {
+    padding: 1.5rem;
+  }
+  .song-title {
+    font-size: 2.75rem;
+  }
+  .artist-name {
+    font-size: 1.8rem;
+  }
+  .album-art {
+    max-width: 450px;
+  }
+  .album-name,
+  .release-date,
+  .popularity {
+    font-size: 1.2rem;
+  }
+  .generate-recommendations,
+  .spotify-button {
+    font-size: 1.6rem;
+    padding: 0.7rem 0.75rem;
+  }
+}

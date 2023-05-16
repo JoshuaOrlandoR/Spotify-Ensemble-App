@@ -35,16 +35,15 @@ const About = () => {
           <div className="aboutSection">
             <h2>Future Development</h2>
             <p>
-            Here are some of the features I'm planning to add in the future:
+            Ensemble will continue to be developed and improved upon.
+            <br></br>
+            Future development will be outlined in the Ensemble Github repository, in the README.md file.
+            <br></br>
+            Stay connected with me and Ensemble at the following:
             </p>
-            <ul>
-              <li>Add Spotify login integration, which will enable playlist generation for users.</li>
-              <li>Add the ability to click on a song-card to act as the new seed track.</li>
-              <li>And many more features I'm sure I'll think of in the future!</li>
-            </ul>
-            <p>If you have any recommendations or want to connect, you can find me at:</p>
             <ul className='about-links'>
               <li><a href="https://github.com/your_username">GITHUB</a></li>
+              <li><a href="https://github.com/your_username">Ensemble Github Repository</a></li>
               <li><a href="https://yourwebsite.com">LINKEDIN</a></li>
             </ul>
           </div>

@@ -31,7 +31,7 @@ function LandingPage() {
     }
 
     try {
-      const response = await axios.post('http://localhost:9000/api/song-info', { songLink: songLinkInput });
+      const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/song-info`, { songLink: songLinkInput });
       console.log('API response:', response.data);
       setSongData(response.data);
       navigate('/song-info');
@@ -74,7 +74,7 @@ function LandingPage() {
         )}
         <button type="submit" className="submit-button">Let's Explore!</button>
       </form>
-      <p className="info-text">Powered by the Spotify API. Created with Vite and React (ADD OTHER TECHNOLOGIES AS WE GO).</p>
+      <p className="info-text">Powered by the Spotify API. Created with Vite and React.</p>
       {songData && <SongInfo data={songData} />} 
     </div>
   );
