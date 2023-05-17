@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import SongDataContext from '../../Context/SongDataContext.js'
+import axios from 'axios';
 import './LandingPage.css';
+import SongInfo from '../SongInfo';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
   const [focused, setFocused] = useState(false);
-  const [input, setInput] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isInvalidLink, setIsInvalidLink] = useState(false);
+  const [showSongInfo, setShowSongInfo] = useState(false); 
+  const { songData, setSongData } = useContext(SongDataContext);
 
-  const handleFormSubmit = (e) => {
+  const songLinkInputRef = useRef();
+  const navigate = useNavigate();
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    const songLinkInput = songLinkInputRef.current.value;
+
     const regex = /^https:\/\/open\.spotify\.com\/track\/[a-zA-Z0-9]+(\?si=[a-zA-Z0-9]+)?$/;
-    const isValidSpotifyLink = regex.test(input);
+    const isValidSpotifyLink = regex.test(songLinkInput);
 
     if (!isValidSpotifyLink) {
       setIsInvalidLink(true);
@@ -20,8 +30,16 @@ function LandingPage() {
       return;
     }
 
-    // Call your backend API here to send the input value and get the song information.
-    console.log('Form submitted:', input);
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/song-info`, { songLink: songLinkInput });
+      console.log('API response:', response.data);
+      setSongData(response.data);
+      navigate('/song-info');
+    } catch (error) {
+      console.error('Error fetching song information:', error);
+    }
+
+    console.log('Form submitted:', songLinkInput);
   };
 
   const handleModalToggle = () => {
@@ -29,14 +47,17 @@ function LandingPage() {
     setIsInvalidLink(false);
   };
 
+  if (showSongInfo) {
+    return <SongInfo data={songData} />;
+  }
+
+
   return (
     <div className="landing-page">
       <h1 className="title">Ensemble</h1>
       <form onSubmit={handleFormSubmit} className="form-container">
         <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          ref={songLinkInputRef}
           className={`input-form${focused ? ' focused' : ''}${isInvalidLink ? ' invalid-link' : ''}`}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -53,7 +74,8 @@ function LandingPage() {
         )}
         <button type="submit" className="submit-button">Let's Explore!</button>
       </form>
-      <p className="info-text">Powered by the Spotify API. Created with Vite and React (ADD OTHER TECHNOLOGIES AS WE GO).</p>
+      <p className="info-text">Powered by the Spotify API. Created with Vite and React.</p>
+      {songData && <SongInfo data={songData} />} 
     </div>
   );
   

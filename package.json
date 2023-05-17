@@ -1,0 +1,23 @@
+{
+  "name": "ensemble",
+  "version": "1.0.0",
+  "description": "Ensemble is a music recommendation tool that allows users to discover new songs and artists based on their input.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/issues"
+  },
+  "homepage": "https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

@@ -1,0 +1,36 @@
+body {
+    overflow-x: hidden;
+  }
+  
+.song-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 75px;
+    padding-left: 55px;
+    padding-bottom: 20px;
+  }
+  
+  .song-list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto; 
+  }
+  
+  /* For small screens (mobile devices) */
+@media only screen and (max-width: 600px) {
+  .song-list-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* For medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .song-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

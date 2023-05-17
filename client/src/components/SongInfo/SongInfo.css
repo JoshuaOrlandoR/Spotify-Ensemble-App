@@ -1,0 +1,137 @@
+.song-info {
+    background-color: #408e91;
+    color: #d8d8d8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw; /* Add this line to make the component span the entire width */
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .song-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .artist-name {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .album-art {
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 1rem;
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+  }
+  
+  .album-art:hover {
+    transform: scale(1.05); 
+  }
+  
+  .album-name,
+  .release-date,
+  .popularity {
+    margin-bottom: 0.5rem;
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .generate-recommendations {
+    background-color: #245953;
+    color: #d8d8d8;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .spotify-button {
+    background-color: #245953;
+    color: #d8d8d8;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .generate-recommendations:hover,
+  .spotify-button:hover {
+    background-color: #1c403c;
+  }
+
+  .album-art-container {
+    position: relative;
+  }
+  
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 140%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #d8d8d8;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  /* For small devices like phones */
+@media (max-width: 600px) {
+  .song-info {
+    padding: 1rem;
+  }
+  .song-title {
+    font-size: 1.75rem;
+  }
+  .artist-name {
+    font-size: 1.5rem;
+  }
+  .album-art {
+    max-width: 300px;
+  }
+  .album-name,
+  .release-date,
+  .popularity {
+    font-size: 0.8rem;
+  }
+  .generate-recommendations,
+  .spotify-button {
+    font-size: 1rem;
+    padding: 0.3rem 0.55rem;
+  }
+}
+
+/* For medium devices like tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  .song-info {
+    padding: 1.5rem;
+  }
+  .song-title {
+    font-size: 2.75rem;
+  }
+  .artist-name {
+    font-size: 1.8rem;
+  }
+  .album-art {
+    max-width: 450px;
+  }
+  .album-name,
+  .release-date,
+  .popularity {
+    font-size: 1.2rem;
+  }
+  .generate-recommendations,
+  .spotify-button {
+    font-size: 1.6rem;
+    padding: 0.7rem 0.75rem;
+  }
+}
