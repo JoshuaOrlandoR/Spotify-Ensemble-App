@@ -35,22 +35,26 @@ The following are the tools and libraries you will need to set up this project:
 - A web browser (e.g., Google Chrome, Firefox)
 - VS Code (or any alternative that you are comfortable with)
 - You must do 2 things to ensure the program runs locally, if there is no live hosted link : 
+<br>
 1. create a .env.local file in the client directory. Add this to the file : 
 VITE_APP_API_URL=http://localhost:9000 (you can change the port). 
+<br>
 2. create a spotify account and sign in on the developer page (https://developer.spotify.com/). You may need to create a project, but you won't need to do anything in this project, aside from grabbing the essential values. Once this is done, in the server directory, create a .env file. In this file, you will need to add the following : 
 <br>
 SPOTIFY_CLIENT_ID=YOUR_SPOTIFY_DEV_ID
 <br>
 SPOTIFY_CLIENT_SECRET=YOU_SPOTIFY_CLIENT_SECRET
 <br>
-The application will NOT function without these keys to acccess the Spotify API. I ask you name the project Ensemble: Local Version, or a similar title. 
-### Installation (for local use)
 <br>
-1. Clone the repository to your local machine using the following command (or download from the Repo!):
-2. Navigate to the directory
-3. In your coding application, open an integrated terminal and install dependencies with npm install (ensure do open a terminal in both the client and server, and complete this step for BOTH, otherwise the app will not work)
-4. Once installed, start the application with npm start, this starts the client and the server
-5. This will open the application on the specified localhost port
+The application will NOT function without these keys to acccess the Spotify API. I ask you name the project Ensemble: Local Version, or a similar title. 
+<br>
+ Installation (for local use)
+<br>
+1. Clone the repository to your local machine using the following command (or download from the Repo!): <br>
+2. Navigate to the directory <br>
+3. In your coding application, open an integrated terminal and install dependencies with npm install (ensure do open a terminal in both the client and server, and complete this step for BOTH, otherwise the app will not work) <br>
+4. Once installed, start the application with npm start, this starts the client and the server <br>
+5. This will open the application on the specified localhost port <br>
 
 ## How to Use
 
@@ -59,7 +63,16 @@ The application will NOT function without these keys to acccess the Spotify API.
 3. View the recommended songs
 
 ## Demonstration
-SCREENSHOTS AND MAYBE A SHORT VIDEO GOES HERE
+1. Home Page
+![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/1adaf40b-a58c-4743-b8eb-bfa64d6f5153)
+2. If an invalid link is submitted 
+![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/6e83ae5f-c59d-45e4-9e78-d3529a37344c)
+3. Successful spotify link submission sends users to the next component 
+![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/037c5ce7-fe69-4691-9f33-13fcc8732380)
+4. Generate Recommendations (just 1 line of songs shown, both simple and advanced generation looks identical, but will result in different songs)
+![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/273069ca-0904-41ee-a051-5928d2670515)
+
+
 
 ## Project Motivation
 
@@ -72,6 +85,7 @@ I created Ensemble out of a deep-seated love for music and a passion for discove
 3. Cleaning up the UI 
 4. Adding the ability for users to control the advanced list generation parameters (detailed in the audio-features Spotify API endpoint).
 5. Infinite Scrolling for more than 12 songs 
+6. Add higher detailed styling 
 <br> 
 ## Contribution
 I am thankful to all who choose to use my app! If you have any suggestions on features, you can email me or contact me on linkedin! 
@@ -82,3 +96,8 @@ My contact information will be in the contact section below!
 I am more than happy to allow users to utilize the application locally. I DO NOT give permission to redistribute the application, or monetize it in any form. 
 
 ## Contact
+
+My Email : joshuaorlando.r@gmail.com
+<br>
+linkedin : coming soon! 
+
