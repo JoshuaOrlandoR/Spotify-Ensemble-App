@@ -64,21 +64,13 @@ The application will NOT function without these keys to acccess the Spotify API.
 
 ## Demonstration
 1. Home Page
-<br>
 ![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/1adaf40b-a58c-4743-b8eb-bfa64d6f5153)
-<br>
 2. If an invalid link is submitted 
-<br>
 ![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/6e83ae5f-c59d-45e4-9e78-d3529a37344c)
-<br>
 3. Successful spotify link submission sends users to the next component 
-<br>
 ![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/037c5ce7-fe69-4691-9f33-13fcc8732380)
-<br>
 4. Generate Recommendations (just 1 line of songs shown, both simple and advanced generation looks identical, but will result in different songs)
-<br>
 ![image](https://github.com/JoshuaOrlandoR/Spotify-Ensemble-App/assets/114437149/273069ca-0904-41ee-a051-5928d2670515)
-<br>
 
 
 
