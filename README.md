@@ -86,3 +86,7 @@ My contact information will be in the contact section below!
 I am more than happy to allow users to utilize the application locally. I DO NOT give permission to redistribute the application, or monetize it in any form. 
 
 ## Contact
+
+My Email : joshuaorlando.r@gmail.com
+linkedin : coming soon! 
+
