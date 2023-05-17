@@ -88,5 +88,6 @@ I am more than happy to allow users to utilize the application locally. I DO NOT
 ## Contact
 
 My Email : joshuaorlando.r@gmail.com
+<br>
 linkedin : coming soon! 
 
