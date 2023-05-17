@@ -5,12 +5,16 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import { songRoutes } from './api/routes/songs.js';
 import errorHandlingMiddleware from './api/middleware/errorHandling.js';
-
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
 
 
 dotenv.config();
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Middleware
 app.use(helmet());
@@ -20,6 +24,14 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/api', songRoutes);
+
+// Static files
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Catchall
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 // Error handling middleware
 app.use(errorHandlingMiddleware);
